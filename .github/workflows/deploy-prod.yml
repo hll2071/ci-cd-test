@@ -24,11 +24,10 @@ jobs:
             --document-name "AWS-RunShellScript" \
             --targets "Key=tag:Environment,Values=prod" \
             --parameters 'commands=[
-              "cd /var/www/your-spring-app",
+              "cd /home/ubuntu",
               "git pull origin main",
               "chmod +x gradlew",
               "./gradlew clean build -x test",
-              "sudo systemctl stop your-spring-app || true", 
-              "cp build/libs/*.jar /opt/your-spring-app/app.jar",
-              "sudo systemctl start your-spring-app"
+              "pkill -f java || true",
+              "nohup java -jar build/libs/*.jar > app.log 2>&1 &"
             ]'
