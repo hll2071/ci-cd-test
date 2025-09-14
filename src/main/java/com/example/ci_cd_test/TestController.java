@@ -12,6 +12,6 @@ public class TestController {
     
     @GetMapping("/test2")
     public String test2() {
-        return "수정된";
+        return "마지막";
     }
 }
