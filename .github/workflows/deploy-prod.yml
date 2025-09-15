@@ -1,4 +1,3 @@
-# .github/workflows/deploy-prod.yml
 name: Deploy to Production
 
 on:
@@ -26,7 +25,6 @@ jobs:
             --targets "Key=tag:Environment,Values=prod" \
             --parameters 'commands=[
               "cd /home/ubuntu",
-              "git config --global --add safe.directory /home/ubuntu", 
               "git pull origin main",
               "chmod +x gradlew",
               "./gradlew clean build -x test",
